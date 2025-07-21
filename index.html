@@ -8,16 +8,22 @@
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="header">
-    <h1>EXPERTIZ <span class="highlight">360</span></h1>
-    <p>Votre partenaire expert en solutions fiscales, comptables et de gestion au Bénin</p>
+  <!-- Header avec Logo à gauche et Menu à droite -->
+  <header class="header-flex">
+    <div class="logo">
+      <h1>EXPERTIZ <span class="highlight">360</span></h1>
+    </div>
+    <nav class="main-nav">
+      <a href="#accueil">Accueil</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
   <!-- Options Horizontales -->
   <div class="options-container-horizontal">
     <!-- Option 1: Société -->
-    <div class="option-card" onclick="window.location.href='societe.html'" style="background-color: #1e3c72; border-top: 5px solid #0d244b;">
+    <div class="option-card" onclick="window.location.href='societe.html'" style="background-color: #062D59;">
       <div class="option-header">Vous êtes une société</div>
       <div class="option-content">
         <p>Optimisez votre fiscalité, rationalisez votre comptabilité et boostez votre croissance avec nos solutions sur mesure pour les entreprises.</p>
@@ -26,7 +32,7 @@
     </div>
 
     <!-- Option 2: Établissement -->
-    <div class="option-card" onclick="window.location.href='etablissement.html'" style="background-color: #137F38; border-top: 5px solid #0a5f2a;">
+    <div class="option-card" onclick="window.location.href='etablissement.html'" style="background-color: #137F38;">
       <div class="option-header">Vous êtes un établissement</div>
       <div class="option-content">
         <p>Conformité réglementaire, gestion administrative et performance opérationnelle pour les établissements publics et parapublics.</p>
@@ -35,7 +41,7 @@
     </div>
 
     <!-- Option 3: Propriétaire Immobilier -->
-    <div class="option-card" onclick="window.location.href='proprietaire.html'" style="background-color: #FF6B35; border-top: 5px solid #cc5020;">
+    <div class="option-card" onclick="window.location.href='proprietaire.html'" style="background-color: #2ECC71;">
       <div class="option-header">Vous êtes un propriétaire immobilier</div>
       <div class="option-content">
         <p>Gérez efficacement votre patrimoine, optimisez vos revenus locatifs et maîtrisez vos obligations fiscales.</p>
@@ -62,7 +68,7 @@
     </div>
   </div>
 
-  <!-- Bouton Outil : Choix du statut juridique -->
+  <!-- Outil interactif -->
   <div class="tools-section">
     <a href="#choix-entreprise" class="btn-primary">→ Trouver le bon statut juridique pour votre projet</a>
   </div>
