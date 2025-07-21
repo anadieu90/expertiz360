@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EXPERTIZ 360 - Experts en Fiscalité, Comptabilité & Gestion</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <h1>EXPERTIZ <span class="highlight">360</span></h1>
+    <p>Votre partenaire expert en solutions fiscales, comptables et de gestion</p>
+  </header>
+
+  <!-- Options -->
+  <div class="options-container">
+    <div class="option-card" onclick="window.location.href='societe.html'">
+      <div class="option-header">Vous êtes une société</div>
+      <div class="option-content">
+        <p>Optimisez votre fiscalité, rationalisez votre comptabilité et boostez votre croissance avec nos solutions sur mesure pour les entreprises.</p>
+        <p><strong>Découvrez nos services →</strong></p>
+      </div>
+    </div>
+    <div class="option-card" onclick="window.location.href='etablissement.html'">
+      <div class="option-header">Vous êtes un établissement</div>
+      <div class="option-content">
+        <p>Conformité réglementaire, gestion administrative et performance opérationnelle pour les établissements publics et parapublics.</p>
+        <p><strong>En savoir plus →</strong></p>
+      </div>
+    </div>
+    <div class="option-card" onclick="window.location.href='proprietaire.html'">
+      <div class="option-header">Vous êtes un propriétaire immobilier</div>
+      <div class="option-content">
+        <p>Gérez efficacement votre patrimoine, optimisez vos revenus locatifs et maîtrisez vos obligations fiscales.</p>
+        <p><strong>Explorer nos solutions →</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Module IA -->
+  <div class="ai-module">
+    <h2>Assistant Fiscal et Comptable EXPERTIZ AI</h2>
+    <p>Posez vos questions sur la fiscalité béninoise, la comptabilité ou la gestion et obtenez des réponses instantanées basées sur :</p>
+    <ul>
+      <li>Code Général des Impôts du Bénin</li>
+      <li>Lois de Finances en vigueur</li>
+      <li>Notes de service fiscales</li>
+      <li>Arrêtés ministériels</li>
+    </ul>
+    <div id="chat-container">
+      <input type="text" id="user-question" placeholder="Posez votre question ici..." />
+      <button onclick="askAI()">Envoyer</button>
+      <div id="ai-response"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>EXPERTIZ 360 - RCCM : RB/COT/25 A 108749 - IFU : 0202410766572</p>
+    <p>Gbédokpo saint miche, ilot : 142, Parcelle : L - Cotonou, Bénin</p>
+    <p>© 2025 Tous droits réservés</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+/* style.css */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f7fa;
+  color: #333;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+.header h1 .highlight {
+  color: #00d2ff;
+}
+.header p {
+  margin-top: 0.5rem;
+}
+
+/* Options Cards */
+.options-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem 1rem;
+}
+.option-card {
+  width: 80%;
+  max-width: 600px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.option-card:hover {
+  transform: translateY(-10px);
+}
+.option-header {
+  padding: 1.5rem;
+  background: #2a5298;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.option-content {
+  padding: 1.5rem;
+  background: white;
+}
+
+/* Module IA */
+.ai-module {
+  width: 80%;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.ai-module ul {
+  list-style: none;
+  padding: 0;
+}
+.ai-module li::before {
+  content: "✓";
+  color: #00d2ff;
+  margin-right: 0.5rem;
+}
+.ai-module input, .ai-module button {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.ai-module button {
+  background: #2a5298;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.ai-module #ai-response {
+  margin-top: 1rem;
+  background: #f5f5f5;
+  padding: 1rem;
+  border-radius: 5px;
+  min-height: 100px;
+}
+
+/* Formulaire */
+.form-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  max-width: 500px;
+  margin: 2rem auto;
+}
+.form-container input {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.form-container button {
+  background: #2a5298;
+  color: white;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Dashboard */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+}
+.card h3 {
+  color: #2a5298;
+}
+.btn-more {
+  background: #2a5298;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* Valeurs */
+.values ul {
+  list-style: none;
+  padding: 0;
+}
+.values li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.values li::before {
+  content: "✓";
+  color: #00d2ff;
+  margin-right: 0.5rem;
+}
+
+/* Footer */
+.footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 2rem;
+}
