@@ -1,4 +1,8 @@
 /* style.css */
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
@@ -7,19 +11,31 @@ body {
   color: #333;
 }
 
-/* Header */
-.header {
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
+/* Header Flex */
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #062D59, #137F38);
   color: white;
-  padding: 3rem 2rem;
-  text-align: center;
+  padding: 1rem 3rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
-.header h1 .highlight {
-  color: #FF6B35;
+.logo h1 {
+  margin: 0;
+  font-size: 1.8rem;
 }
-.header p {
-  margin-top: 0.5rem;
-  font-size: 1.1rem;
+.logo .highlight {
+  color: #137F38;
+}
+.main-nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: 500;
+}
+.main-nav a:hover {
+  text-decoration: underline;
 }
 
 /* Options Horizontales */
@@ -31,7 +47,6 @@ body {
   padding: 3rem 1rem;
   flex-wrap: wrap;
 }
-
 .option-card {
   flex: 1;
   min-width: 280px;
@@ -39,14 +54,13 @@ body {
   border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.15);
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
   cursor: pointer;
   color: white;
   text-align: center;
 }
 .option-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
 }
 .option-header {
   padding: 1.5rem;
@@ -57,15 +71,12 @@ body {
   padding: 1.5rem;
   background: white;
   color: #333;
-  min-height: 150px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 .cta {
   font-weight: bold;
   color: inherit;
   margin-top: 1rem;
+  display: block;
 }
 
 /* Module IA */
@@ -79,7 +90,7 @@ body {
   box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 .ai-module h2 {
-  color: #1e3c72;
+  color: #062D59;
   margin-bottom: 1rem;
 }
 .ai-module ul {
@@ -135,9 +146,89 @@ body {
   transform: translateY(-2px);
 }
 
+/* Page Container (Grille + Sidebar) */
+.page-container {
+  display: flex;
+  max-width: 1400px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  gap: 2rem;
+}
+
+.content-grid {
+  flex: 3;
+}
+.content-grid h2 {
+  color: #062D59;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Grille Tableau */
+.grid-table {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.grid-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  border-top: 4px solid #137F38;
+}
+.grid-item h3 {
+  color: #062D59;
+  margin-top: 0;
+}
+
+/* Sidebar Droite */
+.sidebar-right {
+  flex: 1;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+}
+.sidebar-right h3 {
+  color: #062D59;
+  margin-top: 0;
+}
+.sidebar-right ul {
+  list-style: none;
+  padding: 0;
+}
+.sidebar-right li {
+  margin: 0.8rem 0;
+}
+.sidebar-right a {
+  color: #137F38;
+  text-decoration: none;
+}
+.sidebar-right a:hover {
+  text-decoration: underline;
+}
+.contact-sidebar {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+.contact-sidebar a {
+  display: inline-block;
+  background: #137F38;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+  text-decoration: none;
+}
+
 /* Footer */
 .footer {
-  background: #1e3c72;
+  background: #062D59;
   color: white;
   text-align: center;
   padding: 2rem;
@@ -145,5 +236,5 @@ body {
   font-size: 0.9rem;
 }
 .footer strong {
-  color: #FF6B35;
+  color: #137F38;
 }
