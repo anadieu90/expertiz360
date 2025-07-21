@@ -3,22 +3,23 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  background: #f5f7fa;
+  background: #f8f9fa;
   color: #333;
 }
 
 /* Header */
 .header {
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  background: linear-gradient(135deg, #062D59, #137F38);
   color: white;
-  padding: 2rem;
+  padding: 3rem 2rem;
   text-align: center;
 }
 .header h1 .highlight {
-  color: #00d2ff;
+  color: #137F38;
 }
 .header p {
   margin-top: 0.5rem;
+  font-size: 1.1rem;
 }
 
 /* Options Cards */
@@ -33,18 +34,20 @@ body {
   width: 80%;
   max-width: 600px;
   background: white;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
   overflow: hidden;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  border-left: 5px solid #137F38;
 }
 .option-card:hover {
   transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 .option-header {
   padding: 1.5rem;
-  background: #2a5298;
+  background: #062D59;
   color: white;
   font-size: 1.5rem;
   font-weight: bold;
@@ -61,8 +64,12 @@ body {
   margin: 2rem auto;
   padding: 2rem;
   background: white;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+.ai-module h2 {
+  color: #062D59;
+  margin-bottom: 1rem;
 }
 .ai-module ul {
   list-style: none;
@@ -70,7 +77,7 @@ body {
 }
 .ai-module li::before {
   content: "✓";
-  color: #00d2ff;
+  color: #137F38;
   margin-right: 0.5rem;
 }
 .ai-module input, .ai-module button {
@@ -81,93 +88,75 @@ body {
   border-radius: 5px;
 }
 .ai-module button {
-  background: #2a5298;
+  background: #137F38;
   color: white;
   border: none;
   cursor: pointer;
+  font-weight: bold;
 }
 .ai-module #ai-response {
   margin-top: 1rem;
-  background: #f5f5f5;
+  background: #f0f7f0;
   padding: 1rem;
   border-radius: 5px;
   min-height: 100px;
+  border: 1px dashed #137F38;
 }
 
-/* Formulaire */
-.form-container {
-  background: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  max-width: 500px;
-  margin: 2rem auto;
+/* Tools Section */
+.tools-section {
+  text-align: center;
+  margin: 3rem 0;
 }
-.form-container input {
-  width: 100%;
-  padding: 0.8rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-.form-container button {
-  background: #2a5298;
+.btn-primary {
+  display: inline-block;
+  background: #137F38;
   color: white;
-  padding: 0.8rem 1.2rem;
-  border: none;
+  padding: 0.8rem 2rem;
   border-radius: 5px;
-  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(19, 127, 56, 0.3);
+  transition: all 0.3s ease;
+}
+.btn-primary:hover {
+  background: #0d5f2a;
+  transform: translateY(-2px);
 }
 
-/* Dashboard */
-.dashboard-grid {
+/* Dashboard Grid */
+.content {
+  max-width: 1100px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+.service-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
 }
-.card {
+.service-card {
   background: white;
   padding: 1.5rem;
   border-radius: 10px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  border-top: 4px solid #137F38;
 }
-.card h3 {
-  color: #2a5298;
-}
-.btn-more {
-  background: #2a5298;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 1rem;
-  display: inline-block;
-  text-decoration: none;
-}
-
-/* Valeurs */
-.values ul {
-  list-style: none;
-  padding: 0;
-}
-.values li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.5rem;
-}
-.values li::before {
-  content: "✓";
-  color: #00d2ff;
-  margin-right: 0.5rem;
+.service-card h3 {
+  color: #062D59;
+  margin-top: 0;
 }
 
 /* Footer */
 .footer {
-  background: #333;
+  background: #062D59;
   color: white;
   text-align: center;
   padding: 2rem;
-  margin-top: 2rem;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+.footer strong {
+  color: #137F38;
 }
