@@ -1,29 +1,34 @@
 /* style.css */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f8f9fa;
+  line-height: 1.6;
   color: #333;
+  background: #ffffff;
 }
 
-/* Header Flex */
-.header-flex {
+/* Header : Logo à gauche, Menu à droite */
+.main-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: linear-gradient(135deg, #062D59, #137F38);
   color: white;
   padding: 1rem 3rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 .logo h1 {
   margin: 0;
   font-size: 1.8rem;
+  font-weight: 700;
 }
 .logo .highlight {
   color: #137F38;
@@ -31,18 +36,36 @@ body {
 .main-nav a {
   color: white;
   text-decoration: none;
-  margin-left: 1.5rem;
+  margin-left: 2rem;
   font-weight: 500;
+  transition: opacity 0.3s ease;
 }
 .main-nav a:hover {
-  text-decoration: underline;
+  opacity: 0.8;
 }
 
-/* Options Horizontales */
-.options-container-horizontal {
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #f8f9fa;
+  border-bottom: 1px solid #eee;
+}
+.hero h2 {
+  font-size: 2rem;
+  color: #062D59;
+  margin-bottom: 1rem;
+}
+.hero p {
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Options Grid (3 colonnes horizontales) */
+.options-grid {
   display: flex;
   justify-content: space-around;
-  align-items: stretch;
   gap: 1.5rem;
   padding: 3rem 1rem;
   flex-wrap: wrap;
@@ -52,31 +75,34 @@ body {
   min-width: 280px;
   max-width: 380px;
   border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
   overflow: hidden;
-  transition: transform 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
-  color: white;
-  text-align: center;
 }
 .option-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
 }
-.option-header {
+.card-header {
+  color: white;
   padding: 1.5rem;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: bold;
 }
-.option-content {
+.card-body {
   padding: 1.5rem;
   background: white;
-  color: #333;
+}
+.card-body p {
+  margin-bottom: 1rem;
+  color: #555;
 }
 .cta {
-  font-weight: bold;
-  color: inherit;
-  margin-top: 1rem;
   display: block;
+  color: #137F38;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 /* Module IA */
@@ -84,45 +110,61 @@ body {
   width: 80%;
   max-width: 800px;
   margin: 3rem auto;
-  padding: 2rem;
+  padding: 2.5rem;
   background: white;
   border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  border: 1px solid #eaeaea;
 }
 .ai-module h2 {
   color: #062D59;
   margin-bottom: 1rem;
+  text-align: center;
 }
 .ai-module ul {
   list-style: none;
-  padding: 0;
+  margin: 1.5rem 0;
+}
+.ai-module li {
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
 }
 .ai-module li::before {
   content: "✓";
   color: #137F38;
   margin-right: 0.5rem;
+  font-weight: bold;
 }
-.ai-module input, .ai-module button {
+.chat-container {
+  margin-top: 1.5rem;
+}
+.chat-container input {
   width: 100%;
   padding: 0.8rem;
-  margin-top: 1rem;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 1rem;
 }
-.ai-module button {
+.chat-container button {
+  width: 100%;
+  padding: 0.8rem;
   background: #137F38;
   color: white;
   border: none;
-  cursor: pointer;
-  font-weight: bold;
-}
-.ai-module #ai-response {
+  border-radius: 5px;
   margin-top: 1rem;
-  background: #f0f7f0;
+  font-weight: bold;
+  cursor: pointer;
+}
+#ai-response {
+  margin-top: 1rem;
   padding: 1rem;
+  background: #f0f7f0;
   border-radius: 5px;
   min-height: 100px;
   border: 1px dashed #137F38;
+  color: #333;
 }
 
 /* Tools Section */
@@ -146,8 +188,8 @@ body {
   transform: translateY(-2px);
 }
 
-/* Page Container (Grille + Sidebar) */
-.page-container {
+/* Page Wrapper (Grille + Sidebar) */
+.page-wrapper {
   display: flex;
   max-width: 1400px;
   margin: 3rem auto;
@@ -155,29 +197,34 @@ body {
   gap: 2rem;
 }
 
-.content-grid {
+.content-area {
   flex: 3;
 }
-.content-grid h2 {
+.content-area h2 {
   color: #062D59;
   text-align: center;
   margin-bottom: 2rem;
+  font-size: 1.8rem;
 }
 
-/* Grille Tableau */
-.grid-table {
+/* Tableau des Services */
+.services-table {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
 }
-.grid-item {
+.service-item {
   background: white;
   padding: 1.5rem;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.05);
   border-top: 4px solid #137F38;
+  transition: transform 0.3s ease;
 }
-.grid-item h3 {
+.service-item:hover {
+  transform: translateY(-5px);
+}
+.service-item h3 {
   color: #062D59;
   margin-top: 0;
 }
@@ -190,16 +237,18 @@ body {
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   position: sticky;
-  top: 20px;
+  top: 100px;
   height: fit-content;
 }
 .sidebar-right h3 {
   color: #062D59;
   margin-top: 0;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #137F38;
 }
 .sidebar-right ul {
   list-style: none;
-  padding: 0;
 }
 .sidebar-right li {
   margin: 0.8rem 0;
@@ -207,6 +256,7 @@ body {
 .sidebar-right a {
   color: #137F38;
   text-decoration: none;
+  font-weight: 500;
 }
 .sidebar-right a:hover {
   text-decoration: underline;
@@ -224,6 +274,7 @@ body {
   border-radius: 5px;
   margin-top: 0.5rem;
   text-decoration: none;
+  font-size: 0.9rem;
 }
 
 /* Footer */
@@ -232,9 +283,32 @@ body {
   color: white;
   text-align: center;
   padding: 2rem;
-  margin-top: 3rem;
+  margin-top: 4rem;
   font-size: 0.9rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
 .footer strong {
   color: #137F38;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+  .main-nav a {
+    margin: 0.5rem;
+  }
+  .options-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .page-wrapper {
+    flex-direction: column;
+  }
+  .sidebar-right {
+    position: static;
+  }
 }
