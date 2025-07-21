@@ -8,8 +8,8 @@
 </head>
 <body>
 
-  <!-- Header avec Logo à gauche et Menu à droite -->
-  <header class="header-flex">
+  <!-- Header : Logo à gauche, Menu à droite -->
+  <header class="main-header">
     <div class="logo">
       <h1>EXPERTIZ <span class="highlight">360</span></h1>
     </div>
@@ -20,38 +20,41 @@
     </nav>
   </header>
 
+  <!-- Section Hero -->
+  <section class="hero">
+    <h2>Votre partenaire expert en solutions fiscales, comptables et de gestion au Bénin</h2>
+    <p>Conformité, optimisation, accompagnement stratégique pour les entreprises, établissements publics et propriétaires immobiliers.</p>
+  </section>
+
   <!-- Options Horizontales -->
-  <div class="options-container-horizontal">
-    <!-- Option 1: Société -->
-    <div class="option-card" onclick="window.location.href='societe.html'" style="background-color: #062D59;">
-      <div class="option-header">Vous êtes une société</div>
-      <div class="option-content">
+  <section class="options-grid">
+    <div class="option-card" onclick="window.location.href='societe.html'">
+      <div class="card-header" style="background: #062D59;">Vous êtes une société</div>
+      <div class="card-body">
         <p>Optimisez votre fiscalité, rationalisez votre comptabilité et boostez votre croissance avec nos solutions sur mesure pour les entreprises.</p>
-        <p class="cta">Découvrez nos services →</p>
+        <span class="cta">Découvrez nos services →</span>
       </div>
     </div>
 
-    <!-- Option 2: Établissement -->
-    <div class="option-card" onclick="window.location.href='etablissement.html'" style="background-color: #137F38;">
-      <div class="option-header">Vous êtes un établissement</div>
-      <div class="option-content">
+    <div class="option-card" onclick="window.location.href='etablissement.html'">
+      <div class="card-header" style="background: #137F38;">Vous êtes un établissement</div>
+      <div class="card-body">
         <p>Conformité réglementaire, gestion administrative et performance opérationnelle pour les établissements publics et parapublics.</p>
-        <p class="cta">En savoir plus →</p>
+        <span class="cta">En savoir plus →</span>
       </div>
     </div>
 
-    <!-- Option 3: Propriétaire Immobilier -->
-    <div class="option-card" onclick="window.location.href='proprietaire.html'" style="background-color: #2ECC71;">
-      <div class="option-header">Vous êtes un propriétaire immobilier</div>
-      <div class="option-content">
+    <div class="option-card" onclick="window.location.href='proprietaire.html'">
+      <div class="card-header" style="background: #2ECC71;">Vous êtes un propriétaire immobilier</div>
+      <div class="card-body">
         <p>Gérez efficacement votre patrimoine, optimisez vos revenus locatifs et maîtrisez vos obligations fiscales.</p>
-        <p class="cta">Explorer nos solutions →</p>
+        <span class="cta">Explorer nos solutions →</span>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- Module IA -->
-  <div class="ai-module">
+  <section class="ai-module">
     <h2>Assistant Fiscal et Comptable <strong>EXPERTI AI</strong></h2>
     <p>Posez vos questions sur la fiscalité béninoise, la comptabilité ou la gestion et obtenez des réponses instantanées basées sur :</p>
     <ul>
@@ -61,17 +64,17 @@
       <li>✅ Arrêtés ministériels</li>
       <li>✅ Conventions fiscales</li>
     </ul>
-    <div id="chat-container">
+    <div class="chat-container">
       <input type="text" id="user-question" placeholder="Posez votre question ici..." />
       <button onclick="askAI()">Envoyer</button>
       <div id="ai-response"></div>
     </div>
-  </div>
+  </section>
 
   <!-- Outil interactif -->
-  <div class="tools-section">
-    <a href="#choix-entreprise" class="btn-primary">→ Trouver le bon statut juridique pour votre projet</a>
-  </div>
+  <section class="tools-section">
+    <a href="#" class="btn-primary">→ Trouver le bon statut juridique pour votre projet</a>
+  </section>
 
   <!-- Footer -->
   <footer class="footer">
