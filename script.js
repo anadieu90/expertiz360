@@ -20,6 +20,3 @@ function askAI() {
     `;
   }, 1500);
 }
-
-// Optionnel : Ajouter un chatbot futur
-// À connecter à une API OpenAI fine-tunée sur le CGI béninois
