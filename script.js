@@ -1,6 +1,4 @@
 // script.js
-
-// Assistant IA (simulateur temporaire)
 function askAI() {
   const question = document.getElementById('user-question').value;
   const responseDiv = document.getElementById('ai-response');
@@ -10,9 +8,8 @@ function askAI() {
     return;
   }
 
-  responseDiv.innerHTML = "🔍 Recherche en cours dans les bases fiscales béninoises...";
+  responseDiv.innerHTML = "🔍 Recherche dans les bases fiscales béninoises...";
   
-  // Simuler une réponse après 1.5 secondes
   setTimeout(() => {
     responseDiv.innerHTML = `
       <p><strong>EXPERTI AI :</strong> Votre question serait analysée à partir du Code Général des Impôts du Bénin, des lois de finances, notes de service et arrêtés. Une réponse précise vous serait fournie.</p>
