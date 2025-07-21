@@ -1,69 +1,62 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>EXPERTIZ 360 - Experts en Fiscalité, Comptabilité & Gestion</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EXPERTIZ 360 - Experts en Fiscalité, Comptabilité et Gestion</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <!-- Header -->
   <header class="header">
-    <h1>EXPERTIZ <span class="highlight">360</span></h1>
-    <p>Votre partenaire expert en solutions fiscales, comptables et de gestion au Bénin</p>
+    <div class="hero-section">
+      <h1>EXPERTIZ 360</h1>
+      <p>Votre partenaire expert en solutions fiscales, comptables et de gestion</p>
+    </div>
   </header>
 
-  <!-- Options Verticales -->
-  <div class="options-container">
-    <div class="option-card" onclick="window.location.href='societe.html'">
-      <div class="option-header">Vous êtes une société</div>
-      <div class="option-content">
-        <p>Optimisez votre fiscalité, rationalisez votre comptabilité et boostez votre croissance avec nos solutions sur mesure pour les entreprises.</p>
-      </div>
+  <!-- Options Horizontales -->
+  <section class="options-container">
+    <div class="option-card" onclick="window.location.href='societe.html'" style="background-color: #722FDD;">
+      <h2>Vous êtes une société</h2>
+      <p>Optimisez votre fiscalité, rationalisez votre comptabilité et boostez votre croissance avec nos solutions sur mesure pour les entreprises.</p>
+      <a href="societe.html">Découvrez nos services →</a>
     </div>
-    <div class="option-card" onclick="window.location.href='etablissement.html'">
-      <div class="option-header">Vous êtes un établissement</div>
-      <div class="option-content">
-        <p>Conformité réglementaire, gestion administrative et performance opérationnelle pour les établissements publics et parapublics.</p>
-      </div>
+    <div class="option-card" onclick="window.location.href='etablissement.html'" style="background-color: #FF4560;">
+      <h2>Vous êtes un établissement</h2>
+      <p>Conformité réglementaire, gestion administrative et performance opérationnelle pour les établissements publics et parapublics.</p>
+      <a href="etablissement.html">En savoir plus →</a>
     </div>
-    <div class="option-card" onclick="window.location.href='proprietaire.html'">
-      <div class="option-header">Vous êtes un propriétaire immobilier</div>
-      <div class="option-content">
-        <p>Gérez efficacement votre patrimoine, optimisez vos revenus locatifs et maîtrisez vos obligations fiscales.</p>
-      </div>
+    <div class="option-card" onclick="window.location.href='proprietaire.html'" style="background-color: #2ECC71;">
+      <h2>Vous êtes un propriétaire immobilier</h2>
+      <p>Gérez efficacement votre patrimoine, optimisez vos revenus locatifs et maîtrisez vos obligations fiscales.</p>
+      <a href="proprietaire.html">Explorer nos solutions →</a>
     </div>
-  </div>
+  </section>
 
   <!-- Module IA -->
-  <div class="ai-module">
-    <h2>Assistant Fiscal et Comptable <strong>EXPERTI AI</strong></h2>
+  <section class="ai-module">
+    <h2>Assistant Fiscal et Comptable EXPERTIZ AI</h2>
     <p>Posez vos questions sur la fiscalité béninoise, la comptabilité ou la gestion et obtenez des réponses instantanées basées sur :</p>
     <ul>
-      <li>✅ Code Général des Impôts du Bénin</li>
-      <li>✅ Lois de Finances en vigueur</li>
-      <li>✅ Notes de service fiscales</li>
-      <li>✅ Arrêtés ministériels</li>
-      <li>✅ Conventions fiscales</li>
+      <li>Code Général des Impôts du Bénin</li>
+      <li>Lois de Finances en vigueur</li>
+      <li>Notes de service fiscales</li>
+      <li>Arrêtés ministériels</li>
+      <li>Conventions fiscales</li>
     </ul>
     <div id="chat-container">
       <input type="text" id="user-question" placeholder="Posez votre question ici..." />
       <button onclick="askAI()">Envoyer</button>
       <div id="ai-response"></div>
     </div>
-  </div>
-
-  <!-- Bouton Choix entreprise -->
-  <div class="tools-section">
-    <a href="#choix-entreprise" class="btn-primary">→ Trouver le bon statut juridique pour votre projet</a>
-  </div>
+  </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <p><strong>EXPERTIZ 360</strong> - RCCM : RB/COT/25 A 108749 - IFU : 0202410766572</p>
+    <p>EXPERTIZ 360 - RCCM : RB/COT/25 A 108749 - IFU : 0202410766572</p>
     <p>Gbédokpo saint miche, ilot : 142, Parcelle : L - Cotonou, Bénin</p>
-    <p>Tél : +229 01 59 07 07 37 | Email : contacts@expertiz-360.com</p>
     <p>© 2025 Tous droits réservés</p>
   </footer>
 
