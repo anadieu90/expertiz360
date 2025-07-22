@@ -62,7 +62,7 @@ body {
   margin: 0 auto;
 }
 
-/* === OPTIONS HORIZONTALES (en colonnes) === */
+/* === OPTIONS HORIZONTALES (Accueil) === */
 .options-container-horizontal {
   display: flex;
   justify-content: space-around;
@@ -89,6 +89,10 @@ body {
   padding: 1.5rem;
   font-size: 1.4rem;
   font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .option-content {
   padding: 1.5rem;
@@ -189,6 +193,154 @@ body {
   transform: translateY(-2px);
 }
 
+/* === PAGE AVEC NAVIGATION À GAUCHE === */
+.page-wrapper-left-nav {
+  display: flex;
+  max-width: 1400px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  gap: 2rem;
+}
+
+/* Barre Latérale Gauche */
+.sidebar-left {
+  flex: 1;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+.sidebar-left h3 {
+  color: #062D59;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #137F38;
+}
+.sidebar-left ul {
+  list-style: none;
+  padding: 0;
+}
+.sidebar-left li {
+  margin: 0.8rem 0;
+}
+.sidebar-left a {
+  color: #137F38;
+  text-decoration: none;
+  font-weight: 500;
+}
+.sidebar-left a:hover {
+  text-decoration: underline;
+}
+.contact-sidebar {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+.contact-sidebar a {
+  display: inline-block;
+  background: #137F38;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+/* Contenu Central */
+.content-area {
+  flex: 3;
+}
+.content-area h2 {
+  color: #062D59;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+/* Grille des Services */
+.services-table {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.service-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  border-top: 4px solid #137F38;
+  transition: transform 0.3s ease;
+}
+.service-item:hover {
+  transform: translateY(-5px);
+}
+.service-item h3 {
+  color: #062D59;
+  margin-top: 0;
+}
+
+/* Boutons dans le STORE */
+.service-item button {
+  margin-top: 1rem;
+  background: #137F38;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+}
+
+/* === FORMULAIRES D'AUTHENTIFICATION === */
+.auth-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+.auth-form label {
+  display: block;
+  margin: 1rem 0 0.5rem;
+  font-weight: 500;
+  color: #062D59;
+}
+.auth-form input,
+.auth-form select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+.auth-form button {
+  width: 100%;
+  padding: 1rem;
+  background: #137F38;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1.5rem;
+}
+.auth-form p {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+.auth-form a {
+  color: #137F38;
+  font-weight: bold;
+  text-decoration: none;
+}
+.auth-form a:hover {
+  text-decoration: underline;
+}
+
 /* === FOOTER === */
 .footer {
   background: #062D59;
@@ -197,6 +349,7 @@ body {
   padding: 2rem;
   margin-top: 4rem;
   font-size: 0.9rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
 .footer strong {
   color: #137F38;
@@ -216,7 +369,10 @@ body {
     flex-direction: column;
     align-items: center;
   }
-  .option-card {
-    width: 90%;
+  .page-wrapper-left-nav {
+    flex-direction: column;
+  }
+  .sidebar-left {
+    position: static;
   }
 }
