@@ -8,31 +8,31 @@
 </head>
 <body>
 
-  <!-- Header : Logo à gauche, Menu à droite -->
+  <!-- Header -->
   <header class="main-header">
     <div class="logo">
       <h1>EXPERTIZ <span class="highlight">360</span></h1>
     </div>
     <nav class="main-nav">
-      <a href="#accueil">Accueil</a>
-      <a href="#services">Services</a>
+      <a href="index.html">Accueil</a>
+      <a href="store.html">EXPERTIZ STORE</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <!-- Section Hero -->
+  <!-- Hero Section -->
   <section class="hero">
     <h2>Votre partenaire expert en solutions fiscales, comptables et de gestion au Bénin</h2>
     <p>Conformité, optimisation, accompagnement stratégique pour les entreprises, établissements publics et propriétaires immobiliers.</p>
   </section>
 
   <!-- Options Horizontales -->
-  <section class="options-grid">
+  <div class="options-container-horizontal">
     <div class="option-card" onclick="window.location.href='societe.html'">
       <div class="card-header" style="background: #062D59;">Vous êtes une société</div>
       <div class="card-body">
         <p>Optimisez votre fiscalité, rationalisez votre comptabilité et boostez votre croissance avec nos solutions sur mesure pour les entreprises.</p>
-        <span class="cta">Découvrez nos services →</span>
+        <p class="cta">Découvrez nos services →</p>
       </div>
     </div>
 
@@ -40,7 +40,7 @@
       <div class="card-header" style="background: #137F38;">Vous êtes un établissement</div>
       <div class="card-body">
         <p>Conformité réglementaire, gestion administrative et performance opérationnelle pour les établissements publics et parapublics.</p>
-        <span class="cta">En savoir plus →</span>
+        <p class="cta">En savoir plus →</p>
       </div>
     </div>
 
@@ -48,10 +48,10 @@
       <div class="card-header" style="background: #2ECC71;">Vous êtes un propriétaire immobilier</div>
       <div class="card-body">
         <p>Gérez efficacement votre patrimoine, optimisez vos revenus locatifs et maîtrisez vos obligations fiscales.</p>
-        <span class="cta">Explorer nos solutions →</span>
+        <p class="cta">Explorer nos solutions →</p>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- Module IA -->
   <section class="ai-module">
@@ -64,20 +64,15 @@
       <li>✅ Arrêtés ministériels</li>
       <li>✅ Conventions fiscales</li>
     </ul>
-    <div class="chat-container">
+    <div id="chat-container">
       <input type="text" id="user-question" placeholder="Posez votre question ici..." />
       <button onclick="askAI()">Envoyer</button>
       <div id="ai-response"></div>
     </div>
   </section>
 
-  <!-- Outil interactif -->
-  <section class="tools-section">
-    <a href="#" class="btn-primary">→ Trouver le bon statut juridique pour votre projet</a>
-  </section>
-
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer" id="contact">
     <p><strong>EXPERTIZ 360</strong> - RCCM : RB/COT/25 A 108749 - IFU : 0202410766572</p>
     <p>Gbédokpo saint miche, ilot : 142, Parcelle : L - Cotonou, Bénin</p>
     <p>Tél : +229 01 59 07 07 37 | Email : contacts@expertiz-360.com</p>
