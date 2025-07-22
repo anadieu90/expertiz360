@@ -2,43 +2,81 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Espace Client - EXPERTIZ 360</title>
+  <title>Espace Membre - EXPERTIZ 360</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <!-- Header -->
-  <header class="header">
-    <h1>Bienvenue, <span id="username">Utilisateur</span></h1>
-    <p>Gérez vos documents, vos dossiers fiscaux et vos interactions avec nos experts.</p>
+  <header class="main-header">
+    <div class="logo">
+      <h1>EXPERTIZ <span class="highlight">360</span></h1>
+    </div>
+    <nav class="main-nav">
+      <a href="index.html">Accueil</a>
+      <a href="#" onclick="logout()">Déconnexion</a>
+    </nav>
   </header>
 
-  <!-- Dashboard -->
-  <main class="content">
-    <div class="dashboard-grid">
-      <div class="card">
-        <h3>Documents Partagés</h3>
-        <p>Accédez à vos documents fiscaux et comptables</p>
+  <!-- Conteneur Principal -->
+  <div class="page-wrapper-left-nav">
+
+    <!-- Menu Gauche -->
+    <aside class="sidebar-left">
+      <h3>Votre Espace</h3>
+      <ul>
+        <li><a href="#documents">Documents Partagés</a></li>
+        <li><a href="#messages">Messagerie Expert</a></li>
+        <li><a href="#formation">Formations</a></li>
+        <li><a href="#calendrier">Échéancier Fiscal</a></li>
+        <li><a href="#facturation">Facturation</a></li>
+      </ul>
+      <div class="contact-sidebar">
+        <h4>Support</h4>
+        <p>+229 01 59 07 07 37</p>
+        <a href="mailto:contacts@expertiz-360.com">Contacter un expert</a>
       </div>
-      <div class="card">
-        <h3>Messagerie</h3>
-        <p>Échangez avec votre expert comptable</p>
+    </aside>
+
+    <!-- Dashboard -->
+    <main class="content-area">
+      <h2>Bienvenue, <span id="username">Adhérent</span> !</h2>
+      
+      <div class="services-table">
+        <div class="service-item">
+          <h3>📚 Bibliothèque Fiscale</h3>
+          <p>Accédez aux dernières lois, CGI, notes de service</p>
+        </div>
+        <div class="service-item">
+          <h3>💬 Messagerie Sécurisée</h3>
+          <p>Échangez directement avec votre expert comptable</p>
+        </div>
+        <div class="service-item">
+          <h3>📅 Échéancier Fiscal</h3>
+          <p>Suivez toutes vos obligations fiscales en temps réel</p>
+        </div>
+        <div class="service-item">
+          <h3>🎓 Formations Exclusives</h3>
+          <p>Modules vidéo, webinaires, certifications</p>
+        </div>
+        <div class="service-item">
+          <h3>🧮 Outils de Calcul</h3>
+          <p>Simulateurs d'impôts, checklists, modèles de déclaration</p>
+        </div>
+        <div class="service-item">
+          <h3>📁 Documents Partagés</h3>
+          <p>Déposez et récupérez vos fichiers confidentiels</p>
+        </div>
       </div>
-      <div class="card">
-        <h3>Échéancier Fiscal</h3>
-        <p>Suivez vos échéances fiscales</p>
-      </div>
-      <div class="card">
-        <h3>Outils IA</h3>
-        <p>Utilisez l'assistant EXPERTIZ AI</p>
-      </div>
-    </div>
-    <button onclick="logout()" class="btn-logout">Déconnexion</button>
-  </main>
+    </main>
+
+  </div>
 
   <!-- Footer -->
   <footer class="footer">
-    <p>© 2025 EXPERTIZ 360 - Tous droits réservés</p>
+    <p>EXPERTIZ 360 - RCCM : RB/COT/25 A 108749 - IFU : 0202410766572</p>
+    <p>Gbédokpo saint miche, ilot : 142, Parcelle : L - Cotonou, Bénin</p>
+    <p>© 2025 Tous droits réservés</p>
   </footer>
 
   <!-- Script -->
