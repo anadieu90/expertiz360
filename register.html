@@ -8,15 +8,38 @@
 <body>
 
   <!-- Header -->
-  <header class="header">
-    <h1>Inscription</h1>
-    <p>Créez votre compte pour accéder à votre espace client</p>
+  <header class="main-header">
+    <div class="logo">
+      <h1>EXPERTIZ <span class="highlight">360</span></h1>
+    </div>
+    <nav class="main-nav">
+      <a href="index.html">Accueil</a>
+      <a href="login.html">Connexion</a>
+    </nav>
   </header>
 
-  <!-- Formulaire -->
-  <main class="content">
-    <div class="form-container">
-      <form id="registerForm">
+  <!-- Conteneur Principal -->
+  <div class="page-wrapper-left-nav">
+
+    <!-- Barre Latérale Gauche -->
+    <aside class="sidebar-left">
+      <h3>Adhésion EXPERTIZ 360</h3>
+      <ul>
+        <li><strong>Gratuite</strong> : Accès limité</li>
+        <li><strong>Premium</strong> : 15 000 FCFA/an</li>
+        <li><strong>Entreprise</strong> : 50 000 FCFA/an</li>
+      </ul>
+      <div class="contact-sidebar">
+        <p>+229 01 59 07 07 37</p>
+        <a href="mailto:contacts@expertiz-360.com">Aide inscription</a>
+      </div>
+    </aside>
+
+    <!-- Formulaire d'inscription -->
+    <main class="content-area">
+      <h2>Inscription à EXPERTIZ 360</h2>
+      
+      <form id="registerForm" class="auth-form">
         <label for="name">Nom complet</label>
         <input type="text" id="name" required />
 
@@ -29,15 +52,35 @@
         <label for="confirmPassword">Confirmer le mot de passe</label>
         <input type="password" id="confirmPassword" required />
 
-        <button type="submit">S'inscrire</button>
+        <label for="role">Vous êtes :</label>
+        <select id="role" required>
+          <option value="">Sélectionnez</option>
+          <option value="societe">Une société</option>
+          <option value="etablissement">Un établissement public</option>
+          <option value="proprietaire">Un propriétaire immobilier</option>
+          <option value="particulier">Un particulier</option>
+        </select>
+
+        <label for="plan">Type d'adhésion</label>
+        <select id="plan" required>
+          <option value="free">Gratuit (consultation)</option>
+          <option value="premium">Premium (15 000 FCFA/an)</option>
+          <option value="enterprise">Entreprise (50 000 FCFA/an)</option>
+        </select>
+
+        <button type="submit">Créer mon compte</button>
       </form>
-      <p>Déjà un compte ? <a href="login.html">Connectez-vous ici</a></p>
-    </div>
-  </main>
+
+      <p>Déjà inscrit ? <a href="login.html">Connectez-vous ici</a></p>
+    </main>
+
+  </div>
 
   <!-- Footer -->
   <footer class="footer">
-    <p>© 2025 EXPERTIZ 360 - Tous droits réservés</p>
+    <p>EXPERTIZ 360 - RCCM : RB/COT/25 A 108749 - IFU : 0202410766572</p>
+    <p>Gbédokpo saint miche, ilot : 142, Parcelle : L - Cotonou, Bénin</p>
+    <p>© 2025 Tous droits réservés</p>
   </footer>
 
   <!-- Script -->
