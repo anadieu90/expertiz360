@@ -7,168 +7,121 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background: #f8f9fa;
   color: #333;
-  background: #ffffff;
 }
 
-/* === HEADER GLOBAL === */
-.main-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* Header */
+.header {
   background: linear-gradient(135deg, #062D59, #137F38);
   color: white;
-  padding: 1rem 3rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  padding: 3rem 2rem;
+  text-align: center;
 }
-.logo h1 {
-  margin: 0;
-  font-size: 1.8rem;
-  font-weight: 700;
-}
-.logo .highlight {
+.header h1 .highlight {
   color: #137F38;
 }
-.main-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 2rem;
-  font-weight: 500;
-  transition: opacity 0.3s ease;
-}
-.main-nav a:hover {
-  opacity: 0.8;
+.header p {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
 }
 
-/* === HERO SECTION (Accueil) === */
-.hero {
-  text-align: center;
-  padding: 4rem 2rem;
-  background: #f8f9fa;
-  border-bottom: 1px solid #eee;
-}
-.hero h2 {
-  font-size: 2rem;
-  color: #062D59;
-  margin-bottom: 1rem;
-}
-.hero p {
-  color: #666;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-/* === OPTIONS HORIZONTALES (Accueil) === */
+/* Options Horizontales */
 .options-container-horizontal {
   display: flex;
   justify-content: space-around;
+  align-items: stretch;
   gap: 1.5rem;
   padding: 3rem 1rem;
   flex-wrap: wrap;
 }
+
 .option-card {
   flex: 1;
   min-width: 280px;
   max-width: 380px;
   border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
   overflow: hidden;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  color: white;
+  text-align: center;
 }
 .option-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
 }
-.card-header {
-  color: white;
+.option-header {
   padding: 1.5rem;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: bold;
+  color: white;
 }
-.card-body {
+.option-content {
   padding: 1.5rem;
   background: white;
-}
-.card-body p {
-  margin-bottom: 1rem;
-  color: #555;
+  color: #333;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .cta {
-  display: block;
-  color: #137F38;
   font-weight: bold;
-  text-decoration: none;
+  color: inherit;
+  margin-top: 1rem;
 }
 
-/* === MODULE IA === */
+/* Module IA */
 .ai-module {
   width: 80%;
   max-width: 800px;
   margin: 3rem auto;
-  padding: 2.5rem;
+  padding: 2rem;
   background: white;
   border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-  border: 1px solid #eaeaea;
 }
 .ai-module h2 {
   color: #062D59;
   margin-bottom: 1rem;
-  text-align: center;
 }
 .ai-module ul {
   list-style: none;
-  margin: 1.5rem 0;
   padding: 0;
-}
-.ai-module li {
-  margin: 0.5rem 0;
-  display: flex;
-  align-items: center;
 }
 .ai-module li::before {
   content: "✓";
   color: #137F38;
   margin-right: 0.5rem;
-  font-weight: bold;
 }
-.chat-container {
-  margin-top: 1.5rem;
-}
-.chat-container input {
+.ai-module input, .ai-module button {
   width: 100%;
   padding: 0.8rem;
+  margin-top: 1rem;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 1rem;
 }
-.chat-container button {
-  width: 100%;
-  padding: 0.8rem;
+.ai-module button {
   background: #137F38;
   color: white;
   border: none;
-  border-radius: 5px;
-  margin-top: 1rem;
-  font-weight: bold;
   cursor: pointer;
+  font-weight: bold;
 }
-#ai-response {
+.ai-module #ai-response {
   margin-top: 1rem;
-  padding: 1rem;
   background: #f0f7f0;
+  padding: 1rem;
   border-radius: 5px;
   min-height: 100px;
   border: 1px dashed #137F38;
-  color: #333;
 }
 
-/* === OUTIL INTERACTIF === */
+/* Tools Section */
 .tools-section {
   text-align: center;
   margin: 3rem 0;
@@ -189,186 +142,26 @@ body {
   transform: translateY(-2px);
 }
 
-/* === PAGE AVEC NAVIGATION À GAUCHE === */
-.page-wrapper-left-nav {
-  display: flex;
-  max-width: 1400px;
-  margin: 3rem auto;
-  padding: 0 1rem;
-  gap: 2rem;
-}
-
-/* Barre Latérale Gauche */
-.sidebar-left {
-  flex: 1;
-  background: white;
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 100px;
-  height: fit-content;
-}
-.sidebar-left h3 {
-  color: #062D59;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid #137F38;
-}
-.sidebar-left ul {
-  list-style: none;
-  padding: 0;
-}
-.sidebar-left li {
-  margin: 0.8rem 0;
-}
-.sidebar-left a {
-  color: #137F38;
-  text-decoration: none;
-  font-weight: 500;
-}
-.sidebar-left a:hover {
-  text-decoration: underline;
-}
-.contact-sidebar {
-  margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 1px solid #eee;
-}
-.contact-sidebar a {
-  display: inline-block;
-  background: #137F38;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  margin-top: 0.5rem;
-  text-decoration: none;
-  font-size: 0.9rem;
-}
-
-/* Contenu Central */
-.content-area {
-  flex: 3;
-}
-.content-area h2 {
-  color: #062D59;
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 1.8rem;
-}
-
-/* Grille des Services (Tableau) */
-.services-table {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-.service-item {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  border-top: 4px solid #137F38;
-  transition: transform 0.3s ease;
-}
-.service-item:hover {
-  transform: translateY(-5px);
-}
-.service-item h3 {
-  color: #062D59;
-  margin-top: 0;
-}
-
-/* Boutons dans le STORE */
-.service-item button {
-  margin-top: 1rem;
-  background: #137F38;
-  color: white;
-  border: none;
-  padding: 0.6rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100%;
-  font-weight: bold;
-}
-
-/* === FORMULAIRES D'AUTHENTIFICATION === */
-.auth-form {
-  max-width: 500px;
-  margin: 0 auto;
-}
-.auth-form label {
-  display: block;
-  margin: 1rem 0 0.5rem;
-  font-weight: 500;
-  color: #062D59;
-}
-.auth-form input,
-.auth-form select {
-  width: 100%;
-  padding: 0.8rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1rem;
-}
-.auth-form button {
-  width: 100%;
-  padding: 1rem;
-  background: #137F38;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 1.5rem;
-}
-.auth-form p {
-  text-align: center;
-  margin-top: 1.5rem;
-}
-.auth-form a {
-  color: #137F38;
-  font-weight: bold;
-  text-decoration: none;
-}
-.auth-form a:hover {
-  text-decoration: underline;
-}
-
-/* === FOOTER === */
+/* Footer */
 .footer {
   background: #062D59;
   color: white;
   text-align: center;
   padding: 2rem;
-  margin-top: 4rem;
+  margin-top: 3rem;
   font-size: 0.9rem;
-  border-top: 1px solid rgba(255,255,255,0.1);
 }
 .footer strong {
   color: #137F38;
 }
 
-/* === RESPONSIVE === */
+/* Responsive */
 @media (max-width: 768px) {
-  .main-header {
-    flex-direction: column;
-    text-align: center;
-    padding: 1rem;
-  }
-  .main-nav a {
-    margin: 0.5rem;
-  }
   .options-container-horizontal {
     flex-direction: column;
     align-items: center;
   }
-  .page-wrapper-left-nav {
-    flex-direction: column;
-  }
-  .sidebar-left {
-    position: static;
+  .option-card {
+    width: 90%;
   }
 }
