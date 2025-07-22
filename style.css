@@ -1,4 +1,163 @@
-/* === NAVIGATION À GAUCHE === */
+/* style.css */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #ffffff;
+}
+
+/* Header */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #062D59, #137F38);
+  color: white;
+  padding: 1rem 3rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.logo h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+.logo .highlight {
+  color: #137F38;
+}
+.main-nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 2rem;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+.main-nav a:hover {
+  opacity: 0.8;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #f8f9fa;
+  border-bottom: 1px solid #eee;
+}
+.hero h2 {
+  font-size: 2rem;
+  color: #062D59;
+  margin-bottom: 1rem;
+}
+.hero p {
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Options Grid (Accueil) */
+.options-container-horizontal {
+  display: flex;
+  justify-content: space-around;
+  gap: 1.5rem;
+  padding: 3rem 1rem;
+  flex-wrap: wrap;
+}
+.option-card {
+  flex: 1;
+  min-width: 280px;
+  max-width: 380px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  color: white;
+  text-align: center;
+}
+.option-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+}
+.card-header {
+  padding: 1.5rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.card-body {
+  padding: 1.5rem;
+  background: white;
+  color: #333;
+}
+.card-body p {
+  margin-bottom: 1rem;
+}
+.cta {
+  font-weight: bold;
+  color: inherit;
+  margin-top: 1rem;
+  display: block;
+}
+
+/* Module IA */
+.ai-module {
+  width: 80%;
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  border: 1px solid #eaeaea;
+}
+.ai-module h2 {
+  color: #062D59;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.ai-module ul {
+  list-style: none;
+  margin: 1.5rem 0;
+  padding: 0;
+}
+.ai-module li::before {
+  content: "✓";
+  color: #137F38;
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+.ai-module input, .ai-module button {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.ai-module button {
+  background: #137F38;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+#ai-response {
+  margin-top: 1rem;
+  background: #f0f7f0;
+  padding: 1rem;
+  border-radius: 5px;
+  min-height: 100px;
+  border: 1px dashed #137F38;
+  color: #333;
+}
+
+/* Page Wrapper (Grille + Sidebar) */
 .page-wrapper-left-nav {
   display: flex;
   max-width: 1400px;
@@ -7,7 +166,7 @@
   gap: 2rem;
 }
 
-/* Barre Latérale Gauche */
+/* Sidebar Gauche */
 .sidebar-left {
   flex: 1;
   background: white;
@@ -27,6 +186,7 @@
 }
 .sidebar-left ul {
   list-style: none;
+  padding: 0;
 }
 .sidebar-left li {
   margin: 0.8rem 0;
@@ -55,7 +215,7 @@
   font-size: 0.9rem;
 }
 
-/* Contenu à droite */
+/* Grille des Services */
 .content-area {
   flex: 3;
 }
@@ -66,7 +226,7 @@
   font-size: 1.8rem;
 }
 
-/* Grille des Services */
+/* Grille Tableau */
 .services-table {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -87,9 +247,39 @@
   color: #062D59;
   margin-top: 0;
 }
+.service-item button {
+  margin-top: 1rem;
+  background: #137F38;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Footer */
+.footer {
+  background: #062D59;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 4rem;
+  font-size: 0.9rem;
+}
+.footer strong {
+  color: #137F38;
+}
 
 /* Responsive */
 @media (max-width: 768px) {
+  .main-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+  .main-nav a {
+    margin: 0.5rem;
+  }
   .page-wrapper-left-nav {
     flex-direction: column;
   }
