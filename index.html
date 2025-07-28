@@ -1,96 +1,253 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>EXPERTIZ 360 - Experts en Fiscalité, Comptabilité & Gestion</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Missèbo Connect - Application de marché en ligne</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- Header avec logo et navigation -->
-  <header class="main-header">
-    <div class="logo">
-      <h1>EXPERTIZ <span class="highlight">360</span></h1>
-    </div>
-    <nav class="main-nav">
-      <a href="index.html">Accueil</a>
-      <a href="#services">Nos services</a>
-      <a href="store.html">Expertiz Store</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <h2>Votre partenaire expert en solutions fiscales, comptables et de gestion au Bénin</h2>
-    <p>Conformité, optimisation, accompagnement stratégique pour les entreprises, établissements publics et propriétaires immobiliers.</p>
-  </section>
-
-  <!-- Options Horizontales -->
-  <div class="options-container-horizontal">
-    <!-- Option 1: Société -->
-    <div class="option-card" onclick="window.location.href='societe.html'">
-      <div class="option-header" style="background: #062D59;">Vous êtes une société</div>
-      <div class="option-content">
-        <p>Optimisez votre fiscalité, rationalisez votre comptabilité et boostez votre croissance avec nos solutions sur mesure pour les entreprises.</p>
-        <p class="cta">Découvrez nos services →</p>
+  <div class="container">
+    <!-- Page d'accueil (visible par défaut) -->
+    <div id="home-page">
+      <div class="header">
+        <div class="menu-button" onclick="openSidebar()">
+          <i class="fas fa-bars"></i>
+        </div>
+        <div class="logo">
+          <div class="logo-icon">MC</div>
+          <span>Missèbo Connect</span>
+        </div>
+        <div class="header-icons">
+          <div class="icon-button" onclick="showCart()">
+            <i class="fas fa-shopping-cart"></i>
+            <div class="badge">3</div>
+          </div>
+          <div class="icon-button" onclick="showAdvancedSearch()">
+            <i class="fas fa-search-plus"></i>
+          </div>
+          <div class="sell-button" onclick="showSellerChoice()">Vendre</div>
+        </div>
+      </div>
+      
+      <div class="help-banner">
+        <i class="fas fa-phone"></i>
+        <div class="help-text">BESOIN D'AIDE ? Contactez-nous : +229 01 59 07 07 37</div>
+      </div>
+      
+      <div class="ad-carousel">
+        <img src="https://images.unsplash.com/photo-1552960171-9c0b23055719?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" class="ad-image" id="ad-image-1" alt="Publicité 1">
+        <div class="pagination">
+          <div class="dot active-dot" onclick="goToAd(0)"></div>
+          <div class="dot" onclick="goToAd(1)"></div>
+          <div class="dot" onclick="goToAd(2)"></div>
+        </div>
+      </div>
+      
+      <div class="search-bar">
+        <i class="fas fa-search"></i>
+        <input type="text" class="search-input" placeholder="Recherchez sur Missèbo Connect...">
+      </div>
+      
+      <div class="category-scroll">
+        <div class="category-button active-category" data-category="all" onclick="filterProducts('all')">Tous</div>
+        <div class="category-button" data-category="vetements" onclick="filterProducts('vetements')">Vêtements</div>
+        <div class="category-button" data-category="chaussures" onclick="filterProducts('chaussures')">Chaussures</div>
+      </div>
+      
+      <h2 class="section-title">🔥 Ventes Flash</h2>
+      <div class="flash-sales">
+        <div class="flash-item" onclick="showProductDetail('chemise1')">
+          <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80" class="flash-image" alt="Chemise traditionnelle">
+          <div class="product-name">Chemise traditionnelle</div>
+          <div class="price-row">
+            <div class="price">8 500 FCFA</div>
+            <div class="old-price">10 000 FCFA</div>
+          </div>
+        </div>
+      </div>
+      
+      <h2 class="section-title">👕 Vêtements</h2>
+      <div class="product-scroll" id="vetements-products">
+        <!-- Les produits seront ajoutés dynamiquement -->
+      </div>
+      
+      <!-- Footer de navigation -->
+      <div class="bottom-nav">
+        <div class="nav-item active">
+          <div class="nav-icon"><i class="fas fa-home"></i></div>
+          <div class="nav-text">Accueil</div>
+        </div>
+        <div class="nav-item" onclick="showSearch()">
+          <div class="nav-icon"><i class="fas fa-search"></i></div>
+          <div class="nav-text">Recherche</div>
+        </div>
+        <div class="nav-item" onclick="showChat()">
+          <div class="nav-icon"><i class="fas fa-comments"></i></div>
+          <div class="nav-text">Chat</div>
+        </div>
+        <div class="nav-item" onclick="showProfile()">
+          <div class="nav-icon"><i class="fas fa-user"></i></div>
+          <div class="nav-text">Profil</div>
+        </div>
       </div>
     </div>
-
-    <!-- Option 2: Établissement -->
-    <div class="option-card" onclick="window.location.href='etablissement.html'">
-      <div class="option-header" style="background: #137F38;">Vous êtes un établissement</div>
-      <div class="option-content">
-        <p>Conformité réglementaire, gestion administrative et performance opérationnelle pour les établissements publics et parapublics.</p>
-        <p class="cta">En savoir plus →</p>
+    
+    <!-- Page de choix vendeur -->
+    <div id="seller-choice-page" class="seller-choice-page">
+      <div class="header">
+        <div class="back-button" onclick="goBackToHome()">
+          <i class="fas fa-arrow-left"></i>
+        </div>
+        <div class="logo">
+          <div class="logo-icon">MC</div>
+          <span>Espace vendeur</span>
+        </div>
+      </div>
+      
+      <div class="choice-container">
+        <h2 class="choice-title">Espace vendeur</h2>
+        <p style="margin-bottom: 25px; color: var(--text-light);">Connectez-vous ou inscrivez-vous pour vendre sur Missèbo Connect</p>
+        
+        <div class="choice-buttons">
+          <div class="choice-button login-choice" onclick="showSellerLoginPage()">
+            <i class="fas fa-sign-in-alt" style="margin-right: 8px;"></i> Se connecter
+          </div>
+          <div class="choice-button register-choice" onclick="openRegisterModal()">
+            <i class="fas fa-user-plus" style="margin-right: 8px;"></i> S'inscrire
+          </div>
+        </div>
       </div>
     </div>
-
-    <!-- Option 3: Propriétaire (sur une ligne) -->
-    <div class="option-card" onclick="window.location.href='proprietaire.html'">
-      <div class="option-header" style="background: linear-gradient(135deg, #062D59, #137F38);">
-        Propriétaire immobilier
+    
+    <!-- Page de détails produit -->
+    <div id="product-detail" class="product-detail">
+      <div class="header">
+        <div class="back-button" onclick="hideProductDetail()">
+          <i class="fas fa-arrow-left"></i>
+        </div>
+        <div class="logo">
+          <div class="logo-icon">MC</div>
+          <span>Détails du produit</span>
+        </div>
       </div>
-      <div class="option-content">
-        <p>Gérez efficacement votre patrimoine, optimisez vos revenus locatifs et maîtrisez vos obligations fiscales.</p>
-        <p class="cta">Explorer nos solutions →</p>
+      
+      <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80" class="product-image-large" alt="Produit en détail">
+      
+      <h1 class="product-title">Chemise traditionnelle</h1>
+      
+      <div class="price-row">
+        <div class="price">8 500 FCFA</div>
+        <div class="old-price">10 000 FCFA</div>
+      </div>
+      
+      <div class="badge-container" style="margin-bottom: 12px;">
+        <span class="badge neuf-badge">NEUF</span>
+      </div>
+      
+      <p class="product-description">
+        Magnifique chemise traditionnelle en tissu de qualité, fabriquée à la main. Parfaite pour les cérémonies et événements spéciaux. Taille unique (convient du S au L).
+      </p>
+      
+      <div class="info-section">
+        <h3 class="info-title">Informations vendeur</h3>
+        <p class="info-text">Nom: <span>Koffi</span></p>
+        <p class="info-text">Emplacement: <span>Allée 2, près de la boutique rouge</span></p>
+      </div>
+      
+      <div class="action-buttons">
+        <div class="share-button" onclick="shareProduct()">
+          <div class="offer-button" style="background: var(--secondary-light);">Partager</div>
+        </div>
+        <div class="offer-button-detail" onclick="showOfferModal()">
+          <div class="offer-button">💬 Marchander</div>
+        </div>
+      </div>
+      
+      <div class="whatsapp-button" onclick="contactSeller()">
+        <i class="fab fa-whatsapp"></i>
+        <span>Contacter sur WhatsApp</span>
+      </div>
+      
+      <div style="display: flex; flex-direction: column; gap: 10px; margin: 15px 0;">
+        <div class="offer-button" style="background: var(--secondary); font-size: 16px; padding: 12px;" onclick="buyNow()">
+          Acheter maintenant
+        </div>
+        <div class="offer-button" style="background: var(--tontine); font-size: 16px; padding: 12px;" onclick="showTontineModal()">
+          💳 Payer en plusieurs tranches
+        </div>
       </div>
     </div>
+    
+    <!-- Modale de tontine -->
+    <div id="tontine-modal" class="tontine-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="tontine-header">
+            <div class="tontine-icon">
+              <i class="fas fa-hand-holding-usd"></i>
+            </div>
+            <div>
+              <div class="tontine-title">Paiement en plusieurs tranches</div>
+              <div style="color: var(--text-light); font-size: 14px;">Jusqu'à 3 mois pour payer</div>
+            </div>
+          </div>
+          <div class="close-modal" onclick="closeTontineModal()">&times;</div>
+        </div>
+        
+        <div class="tontine-description">
+          <p style="margin: 0; color: var(--text);">Achetez sans attendre et réglez en plusieurs fois. Une fois le paiement complet, vous récupérez votre produit.</p>
+        </div>
+        
+        <div class="tontine-calculator">
+          <div class="calculator-row">
+            <div class="calculator-label">Prix du produit</div>
+            <div class="calculator-value">8 500 FCFA</div>
+          </div>
+          <div class="calculator-row">
+            <div class="calculator-label">Frais de service (2%)</div>
+            <div class="calculator-value">170 FCFA</div>
+          </div>
+          <div class="calculator-row">
+            <div class="calculator-label">Total à payer</div>
+            <div class="calculator-value">8 670 FCFA</div>
+          </div>
+        </div>
+        
+        <div class="modal-buttons">
+          <div class="modal-button modal-button-cancel" onclick="closeTontineModal()">Annuler</div>
+          <div class="modal-button modal-button-send" onclick="startTontinePayment()">Commencer</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Menu latéral -->
+    <div id="sidebar" class="sidebar">
+      <div class="close-sidebar" onclick="closeSidebar()">&times;</div>
+      <h2 class="sidebar-title">Missèbo Connect</h2>
+      
+      <div class="sidebar-section">
+        <h3 class="sidebar-section-title">Mon compte</h3>
+        <div class="sidebar-item" onclick="closeSidebar(); showProfile()">Besoin d'aide ?</div>
+        <div class="sidebar-item" onclick="closeSidebar(); showProfile()">Votre compte</div>
+      </div>
+      
+      <div class="sidebar-section">
+        <h3 class="sidebar-section-title">Nos catégories</h3>
+        <div class="sidebar-item" onclick="filterProducts('vetements'); closeSidebar()">Vêtements</div>
+        <div class="sidebar-item" onclick="filterProducts('chaussures'); closeSidebar()">Chaussures</div>
+      </div>
+      
+      <div class="sidebar-section">
+        <h3 class="sidebar-section-title">Nos services</h3>
+        <div class="sidebar-item" onclick="openRegisterModal(); closeSidebar()">Devenez vendeur</div>
+      </div>
+    </div>
+    
+    <div id="sidebar-overlay" class="sidebar-overlay" onclick="closeSidebar()"></div>
   </div>
 
-  <!-- Module IA -->
-  <div class="ai-module">
-    <h2>Assistant Fiscal et Comptable <strong>EXPERTIZ IA</strong></h2>
-    <p>Posez vos questions sur la fiscalité béninoise, la comptabilité ou la gestion et obtenez des réponses instantanées basées sur :</p>
-    <ul>
-      <li>✅ Code Général des Impôts du Bénin</li>
-      <li>✅ Lois de Finances en vigueur</li>
-      <li>✅ Notes de service fiscales</li>
-      <li>✅ Arrêtés ministériels</li>
-      <li>✅ Conventions fiscales</li>
-    </ul>
-    <div id="chat-container">
-      <input type="text" id="user-question" placeholder="Posez votre question ici..." />
-      <button onclick="askAI()">Envoyer</button>
-      <div id="ai-response"></div>
-    </div>
-  </div>
-
-  <!-- Outil interactif -->
-  <div class="tools-section">
-    <a href="#choix-entreprise" class="btn-primary">→ Trouver le bon statut juridique pour votre projet</a>
-  </div>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <p><strong>EXPERTIZ 360</strong> - RCCM : RB/COT/25 A 108749 - IFU : 0202410766572</p>
-    <p>Gbédokpo saint miche, ilot : 142, Parcelle : L - Cotonou, Bénin</p>
-    <p>Tél : +229 01 59 07 07 37 | Email : contacts@expertiz-360.com</p>
-    <p>© 2025 Tous droits réservés</p>
-  </footer>
-
-  <!-- Scripts -->
   <script src="script.js"></script>
 </body>
 </html>
