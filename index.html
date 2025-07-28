@@ -24,9 +24,6 @@
             <i class="fas fa-shopping-cart"></i>
             <div class="badge">3</div>
           </div>
-          <div class="icon-button" onclick="showAdvancedSearch()">
-            <i class="fas fa-search-plus"></i>
-          </div>
           <div class="sell-button" onclick="showSellerChoice()">Vendre</div>
         </div>
       </div>
@@ -38,6 +35,8 @@
       
       <div class="ad-carousel">
         <img src="https://images.unsplash.com/photo-1552960171-9c0b23055719?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" class="ad-image" id="ad-image-1" alt="Publicité 1">
+        <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" class="ad-image" id="ad-image-2" alt="Publicité 2" style="display: none;">
+        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" class="ad-image" id="ad-image-3" alt="Publicité 3" style="display: none;">
         <div class="pagination">
           <div class="dot active-dot" onclick="goToAd(0)"></div>
           <div class="dot" onclick="goToAd(1)"></div>
@@ -54,6 +53,8 @@
         <div class="category-button active-category" data-category="all" onclick="filterProducts('all')">Tous</div>
         <div class="category-button" data-category="vetements" onclick="filterProducts('vetements')">Vêtements</div>
         <div class="category-button" data-category="chaussures" onclick="filterProducts('chaussures')">Chaussures</div>
+        <div class="category-button" data-category="sacs" onclick="filterProducts('sacs')">Sacs</div>
+        <div class="category-button" data-category="accessoires" onclick="filterProducts('accessoires')">Accessoires</div>
       </div>
       
       <h2 class="section-title">🔥 Ventes Flash</h2>
@@ -65,13 +66,30 @@
             <div class="price">8 500 FCFA</div>
             <div class="old-price">10 000 FCFA</div>
           </div>
+          <div class="timer">Temps restant : 00:05:00</div>
+        </div>
+        <div class="flash-item" onclick="showProductDetail('robe1')">
+          <img src="https://images.unsplash.com/photo-1592226440509-5d069433b1ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80" class="flash-image" alt="Robe traditionnelle">
+          <div class="product-name">Robe traditionnelle</div>
+          <div class="price-row">
+            <div class="price">6 500 FCFA</div>
+            <div class="old-price">8 000 FCFA</div>
+          </div>
+          <div class="timer">Temps restant : 00:05:00</div>
         </div>
       </div>
       
       <h2 class="section-title">👕 Vêtements</h2>
-      <div class="product-scroll" id="vetements-products">
-        <!-- Les produits seront ajoutés dynamiquement -->
-      </div>
+      <div class="product-scroll" id="vetements-products"></div>
+      
+      <h2 class="section-title">👟 Chaussures</h2>
+      <div class="product-scroll" id="chaussures-products"></div>
+      
+      <h2 class="section-title">👜 Sacs</h2>
+      <div class="product-scroll" id="sacs-products"></div>
+      
+      <h2 class="section-title">💄 Accessoires</h2>
+      <div class="product-scroll" id="accessoires-products"></div>
       
       <!-- Footer de navigation -->
       <div class="bottom-nav">
@@ -95,7 +113,7 @@
     </div>
     
     <!-- Page de choix vendeur -->
-    <div id="seller-choice-page" class="seller-choice-page">
+    <div id="seller-choice-page" class="seller-choice-page" style="display: none;">
       <div class="header">
         <div class="back-button" onclick="goBackToHome()">
           <i class="fas fa-arrow-left"></i>
@@ -122,7 +140,7 @@
     </div>
     
     <!-- Page de détails produit -->
-    <div id="product-detail" class="product-detail">
+    <div id="product-detail" class="product-detail" style="display: none;">
       <div class="header">
         <div class="back-button" onclick="hideProductDetail()">
           <i class="fas fa-arrow-left"></i>
@@ -133,27 +151,33 @@
         </div>
       </div>
       
-      <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80" class="product-image-large" alt="Produit en détail">
+      <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80" class="product-image-large" id="detail-image" alt="Produit en détail">
       
-      <h1 class="product-title">Chemise traditionnelle</h1>
+      <h1 class="product-title" id="detail-title">Chemise traditionnelle</h1>
       
       <div class="price-row">
-        <div class="price">8 500 FCFA</div>
-        <div class="old-price">10 000 FCFA</div>
+        <div class="price" id="detail-price">8 500 FCFA</div>
+        <div class="old-price" id="detail-old-price">10 000 FCFA</div>
       </div>
       
       <div class="badge-container" style="margin-bottom: 12px;">
-        <span class="badge neuf-badge">NEUF</span>
+        <span class="badge neuf-badge" id="detail-condition">NEUF</span>
       </div>
       
-      <p class="product-description">
+      <p class="product-description" id="detail-description">
         Magnifique chemise traditionnelle en tissu de qualité, fabriquée à la main. Parfaite pour les cérémonies et événements spéciaux. Taille unique (convient du S au L).
       </p>
       
       <div class="info-section">
         <h3 class="info-title">Informations vendeur</h3>
-        <p class="info-text">Nom: <span>Koffi</span></p>
-        <p class="info-text">Emplacement: <span>Allée 2, près de la boutique rouge</span></p>
+        <p class="info-text">Nom: <span id="detail-seller">Koffi</span></p>
+        <p class="info-text">Emplacement: <span id="detail-location">Allée 2, près de la boutique rouge</span></p>
+      </div>
+      
+      <div class="info-section">
+        <h3 class="info-title">Détails du produit</h3>
+        <p class="info-text">Catégorie: <span id="detail-category">Vêtements</span></p>
+        <p class="info-text">État: <span id="detail-condition-text">Neuf</span></p>
       </div>
       
       <div class="action-buttons">
@@ -181,7 +205,7 @@
     </div>
     
     <!-- Modale de tontine -->
-    <div id="tontine-modal" class="tontine-modal">
+    <div id="tontine-modal" class="tontine-modal" style="display: none;">
       <div class="modal-content">
         <div class="modal-header">
           <div class="tontine-header">
@@ -203,16 +227,47 @@
         <div class="tontine-calculator">
           <div class="calculator-row">
             <div class="calculator-label">Prix du produit</div>
-            <div class="calculator-value">8 500 FCFA</div>
+            <div class="calculator-value" id="tontine-product-price">8 500 FCFA</div>
           </div>
           <div class="calculator-row">
             <div class="calculator-label">Frais de service (2%)</div>
-            <div class="calculator-value">170 FCFA</div>
+            <div class="calculator-value" id="tontine-fees">170 FCFA</div>
           </div>
           <div class="calculator-row">
             <div class="calculator-label">Total à payer</div>
-            <div class="calculator-value">8 670 FCFA</div>
+            <div class="calculator-value" id="tontine-total">8 670 FCFA</div>
           </div>
+        </div>
+        
+        <div class="tontine-steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <div class="step-title">Versement initial</div>
+              <p style="margin: 0; color: var(--text-light); font-size: 14px;">Minimum 20% du prix total (1 734 FCFA)</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <div class="step-title">Versements suivants</div>
+              <p style="margin: 0; color: var(--text-light); font-size: 14px;">Paiements hebdomadaires ou mensuels selon votre choix</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <div class="step-title">Réception du produit</div>
+              <p style="margin: 0; color: var(--text-light); font-size: 14px;">Une fois le paiement complet, récupérez votre produit</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tontine-warning">
+          <p style="margin: 0; color: var(--text); font-size: 14px;">
+            <i class="fas fa-exclamation-triangle" style="color: #FFC107; margin-right: 5px;"></i>
+            En cas d'abandon avant la fin du paiement, 10% du montant déjà versé sera prélevé comme frais administratifs.
+          </p>
         </div>
         
         <div class="modal-buttons">
@@ -222,8 +277,143 @@
       </div>
     </div>
     
+    <!-- Modale de marchandage -->
+    <div id="offer-modal" class="offer-modal" style="display: none;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Faire une offre</h2>
+          <div class="close-modal" onclick="closeOfferModal()">&times;</div>
+        </div>
+        
+        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80" class="modal-product-image" id="modal-image" alt="Produit">
+        <h3 class="modal-product-name" id="modal-product-name">Chemise traditionnelle</h3>
+        
+        <div class="modal-seller-info">
+          <p><strong>Vendeur :</strong> <span id="modal-seller">Koffi</span></p>
+          <p><strong>Emplacement :</strong> <span id="modal-location">Allée 2, près de la boutique rouge</span></p>
+        </div>
+        
+        <input type="number" class="input-offer" id="offer-amount" placeholder="Entrez votre offre en FCFA" min="1">
+        
+        <div class="modal-buttons">
+          <div class="modal-button modal-button-cancel" onclick="closeOfferModal()">Annuler</div>
+          <div class="modal-button modal-button-send" onclick="sendOffer()">Envoyer l'offre</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Modale d'inscription vendeur -->
+    <div id="register-modal" class="register-modal" style="display: none;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Devenez vendeur sur Missèbo Connect</h2>
+          <div class="close-modal" onclick="closeRegisterModal()">&times;</div>
+        </div>
+        
+        <p style="text-align: center; margin-bottom: 16px; color: var(--text-light); font-size: 14px;">
+          Remplissez ce formulaire pour rejoindre notre plateforme
+        </p>
+        
+        <div id="register-error" class="error-message"></div>
+        
+        <div class="register-form">
+          <div class="form-group">
+            <label class="form-label">Nom complet</label>
+            <input type="text" class="form-input" id="register-name" placeholder="Entrez votre nom complet">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" id="register-email" placeholder="Entrez votre email">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Mot de passe</label>
+            <input type="password" class="form-input" id="register-password" placeholder="Entrez un mot de passe">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Numéro WhatsApp</label>
+            <input type="tel" class="form-input" id="register-whatsapp" placeholder="Ex: +22901234567">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Emplacement</label>
+            <input type="text" class="form-input" id="register-location" placeholder="Ex: Allée 2, près de la boutique rouge">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Catégorie principale</label>
+            <select class="form-input" id="register-category">
+              <option value="">Sélectionnez une catégorie</option>
+              <option value="vetements">Vêtements</option>
+              <option value="chaussures">Chaussures</option>
+              <option value="sacs">Sacs</option>
+              <option value="accessoires">Accessoires</option>
+              <option value="electromenager">Électroménager</option>
+              <option value="alimentation">Alimentation</option>
+              <option value="beaute">Beauté</option>
+              <option value="jouets">Jouets</option>
+              <option value="livres">Livres</option>
+              <option value="autres">Autres</option>
+            </select>
+          </div>
+          
+          <div class="offer-button" style="background: var(--secondary); margin-top: 8px; font-size: 14px;" onclick="registerSeller()">
+            S'inscrire en tant que vendeur
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Page de profil -->
+    <div id="profile-page" style="display: none; padding: 15px; background: var(--background);">
+      <div class="header">
+        <div class="back-button" onclick="hideProfile()">
+          <i class="fas fa-arrow-left"></i>
+        </div>
+        <div class="logo">
+          <div class="logo-icon">MC</div>
+          <span>Mon Profil</span>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin: 20px 0;">
+        <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--primary); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">
+          <i style="font-size: 30px; color: white;" class="fas fa-user"></i>
+        </div>
+        <h2 style="font-size: 18px; margin-bottom: 4px;">Jean Doe</h2>
+        <p style="color: var(--text-light); margin-bottom: 16px; font-size: 13px;">Acheteur depuis 6 mois</p>
+      </div>
+      
+      <div class="info-section">
+        <h3 class="info-title">Mes informations</h3>
+        <p class="info-text" style="font-size: 14px;">Email: jean.doe@example.com</p>
+        <p class="info-text" style="font-size: 14px;">Téléphone: +229 01 23 45 67</p>
+        <p class="info-text" style="font-size: 14px;">Adresse: Cotonou, Missèbo</p>
+      </div>
+      
+      <div class="info-section">
+        <h3 class="info-title">Mes commandes récentes</h3>
+        <div style="margin-bottom: 12px;">
+          <p class="info-text" style="font-weight: bold; font-size: 14px;">Chemise traditionnelle</p>
+          <p class="info-text" style="font-size: 13px;">Date: 15 juillet 2025</p>
+          <p class="info-text" style="font-size: 13px;">Statut: <span style="color: var(--secondary);">Livré</span></p>
+        </div>
+        <div>
+          <p class="info-text" style="font-weight: bold; font-size: 14px;">Pagne wax</p>
+          <p class="info-text" style="font-size: 13px;">Date: 10 juillet 2025</p>
+          <p class="info-text" style="font-size: 13px;">Statut: <span style="color: var(--primary);">En cours</span></p>
+        </div>
+      </div>
+      
+      <div class="offer-button" style="background: var(--secondary); margin: 15px 0; font-size: 14px;" onclick="hideProfile()">
+        Retour à l'accueil
+      </div>
+    </div>
+    
     <!-- Menu latéral -->
-    <div id="sidebar" class="sidebar">
+    <div id="sidebar" class="sidebar" style="display: none;">
       <div class="close-sidebar" onclick="closeSidebar()">&times;</div>
       <h2 class="sidebar-title">Missèbo Connect</h2>
       
@@ -231,21 +421,35 @@
         <h3 class="sidebar-section-title">Mon compte</h3>
         <div class="sidebar-item" onclick="closeSidebar(); showProfile()">Besoin d'aide ?</div>
         <div class="sidebar-item" onclick="closeSidebar(); showProfile()">Votre compte</div>
+        <div class="sidebar-item" onclick="closeSidebar()">Vos commandes</div>
+        <div class="sidebar-item" onclick="closeSidebar()">Bons d'achat</div>
+        <div class="sidebar-item" onclick="closeSidebar()">Favoris</div>
       </div>
       
       <div class="sidebar-section">
         <h3 class="sidebar-section-title">Nos catégories</h3>
         <div class="sidebar-item" onclick="filterProducts('vetements'); closeSidebar()">Vêtements</div>
         <div class="sidebar-item" onclick="filterProducts('chaussures'); closeSidebar()">Chaussures</div>
+        <div class="sidebar-item" onclick="filterProducts('sacs'); closeSidebar()">Sacs</div>
+        <div class="sidebar-item" onclick="filterProducts('accessoires'); closeSidebar()">Accessoires</div>
+        <div class="sidebar-item" onclick="filterProducts('electromenager'); closeSidebar()">Électroménager</div>
+        <div class="sidebar-item" onclick="filterProducts('alimentation'); closeSidebar()">Alimentation</div>
+        <div class="sidebar-item" onclick="filterProducts('beaute'); closeSidebar()">Beauté</div>
+        <div class="sidebar-item" onclick="filterProducts('jouets'); closeSidebar()">Jouets</div>
+        <div class="sidebar-item" onclick="filterProducts('livres'); closeSidebar()">Livres</div>
       </div>
       
       <div class="sidebar-section">
         <h3 class="sidebar-section-title">Nos services</h3>
+        <div class="sidebar-item" onclick="closeSidebar()">Missèbo Prime</div>
         <div class="sidebar-item" onclick="openRegisterModal(); closeSidebar()">Devenez vendeur</div>
+        <div class="sidebar-item" onclick="closeSidebar()">Devenez ambassadeur</div>
+        <div class="sidebar-item" onclick="closeSidebar()">Commander par téléphone</div>
+        <div class="sidebar-item" onclick="closeSidebar()">Centre d'assistance</div>
       </div>
     </div>
     
-    <div id="sidebar-overlay" class="sidebar-overlay" onclick="closeSidebar()"></div>
+    <div id="sidebar-overlay" class="sidebar-overlay" style="display: none;" onclick="closeSidebar()"></div>
   </div>
 
   <script src="script.js"></script>
