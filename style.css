@@ -13,15 +13,22 @@ body {
 
 :root {
   --primary: #062D59;
+  --primary-light: #1A4B7A;
   --secondary: #137F38;
+  --secondary-light: #4CAF50;
   --background: #F8F9FC;
   --card: #FFFFFF;
   --text: #222;
   --text-light: #555;
+  --border: #DDDDDD;
   --neuf: #062D59;
   --frippe: #FF9800;
   --whatsapp: #25D366;
+  --star: #FFD700;
+  --video-overlay: rgba(0, 0, 0, 0.4);
+  --voice-active: #FF6B35;
   --tontine: #673AB7;
+  --tontine-light: #D1C4E9;
 }
 
 .container {
@@ -156,6 +163,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .pagination {
@@ -283,6 +291,12 @@ body {
   margin-left: 4px;
 }
 
+.timer {
+  font-size: 11px;
+  color: #FF6B35;
+  padding: 0 8px 8px;
+}
+
 .product-scroll {
   margin: 0 15px 20px;
   white-space: nowrap;
@@ -371,7 +385,6 @@ body {
 }
 
 .product-detail {
-  display: none;
   padding: 15px;
   background: var(--background);
 }
@@ -447,8 +460,7 @@ body {
   flex: 1;
 }
 
-.tontine-modal {
-  display: none;
+.offer-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -465,6 +477,8 @@ body {
   padding: 16px;
   max-width: 500px;
   margin: 40px auto;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .modal-header {
@@ -482,6 +496,78 @@ body {
 .modal-title {
   font-size: 18px;
   font-weight: bold;
+}
+
+.modal-product-image {
+  width: 100%;
+  height: 140px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+
+.modal-product-name {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.modal-seller-info {
+  background: #ECEFF1;
+  border-radius: 8px;
+  padding: 8px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.input-offer {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.modal-button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.modal-button-cancel {
+  background: #ECEFF1;
+  color: var(--text);
+}
+
+.modal-button-send {
+  background: var(--primary);
+  color: white;
+}
+
+.tontine-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+  padding: 20px;
+}
+
+.tontine-modal .modal-content {
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .tontine-header {
@@ -517,6 +603,45 @@ body {
   border-left: 4px solid var(--tontine);
 }
 
+.tontine-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.tontine-feature {
+  background: #F8FAFF;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+}
+
+.tontine-feature-icon {
+  background: #E3F2FD;
+  color: var(--tontine);
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+  font-size: 20px;
+}
+
+.tontine-feature-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: var(--text);
+}
+
+.tontine-feature-value {
+  color: var(--tontine);
+  font-weight: bold;
+  font-size: 18px;
+}
+
 .tontine-calculator {
   background: var(--card);
   border-radius: 12px;
@@ -545,33 +670,121 @@ body {
   font-weight: bold;
 }
 
-.modal-buttons {
+.tontine-steps {
+  margin-bottom: 20px;
+}
+
+.step {
   display: flex;
-  gap: 8px;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 15px;
 }
 
-.modal-button {
-  flex: 1;
-  padding: 10px;
-  border-radius: 8px;
-  text-align: center;
+.step-number {
+  background: var(--tontine);
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: bold;
-  cursor: pointer;
-  font-size: 15px;
+  margin-top: 4px;
 }
 
-.modal-button-cancel {
-  background: #ECEFF1;
+.step-content {
+  flex: 1;
+}
+
+.step-title {
+  font-weight: bold;
+  margin-bottom: 5px;
   color: var(--text);
 }
 
-.modal-button-send {
-  background: var(--primary);
+.tontine-warning {
+  background: #FFF8E1;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 20px;
+  border-left: 4px solid #FFC107;
+}
+
+.whatsapp-button {
+  background: var(--whatsapp);
   color: white;
+  border-radius: 8px;
+  padding: 9px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.whatsapp-button i {
+  margin-right: 6px;
+  font-size: 18px;
+}
+
+.register-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+  padding: 20px;
+}
+
+.register-modal .modal-content {
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.register-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.register-form {
+  margin-bottom: 16px;
+}
+
+.form-group {
+  margin-bottom: 12px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: bold;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.error-message {
+  color: #F44336;
+  text-align: center;
+  margin-bottom: 12px;
+  font-size: 14px;
 }
 
 .sidebar {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -582,10 +795,10 @@ body {
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
   padding: 16px;
   overflow-y: auto;
+  display: none;
 }
 
 .sidebar-overlay {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -593,6 +806,7 @@ body {
   height: 100%;
   background: rgba(0,0,0,0.5);
   z-index: 999;
+  display: none;
 }
 
 .close-sidebar {
@@ -658,30 +872,6 @@ body {
 .nav-text {
   font-size: 10px;
   font-weight: bold;
-}
-
-.whatsapp-button {
-  background: var(--whatsapp);
-  color: white;
-  border-radius: 8px;
-  padding: 9px 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 15px;
-  font-weight: bold;
-  font-size: 15px;
-}
-
-.whatsapp-button i {
-  margin-right: 6px;
-  font-size: 18px;
-}
-
-.seller-choice-page {
-  display: none;
-  padding: 15px;
-  background: var(--background);
 }
 
 .choice-container {
