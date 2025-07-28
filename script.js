@@ -1,4 +1,4 @@
-// Données des produits
+// Données des produits (mock data)
 const products = {
   'chemise1': {
     id: 'chemise1',
@@ -11,12 +11,36 @@ const products = {
     location: 'Allée 2, près de la boutique rouge',
     category: 'Vêtements',
     condition: 'neuf'
+  },
+  'robe1': {
+    id: 'robe1',
+    name: 'Robe traditionnelle',
+    price: 6500,
+    oldPrice: 8000,
+    description: 'Belle robe traditionnelle en wax, disponible en plusieurs couleurs. Taille unique (convient du S au L).',
+    image: 'https://images.unsplash.com/photo-1592226440509-5d069433b1ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80',
+    seller: 'Awa',
+    location: 'Allée 3, près du kiosque bleu',
+    category: 'Vêtements',
+    condition: 'neuf'
+  },
+  'sandales1': {
+    id: 'sandales1',
+    name: 'Sandales en cuir',
+    price: 5000,
+    description: 'Sandales en cuir véritable, taille 42, parfait état.',
+    image: 'https://images.unsplash.com/photo-1600185365926-3a2ce1d3e826?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80',
+    seller: 'Baba',
+    location: 'Allée 5, près de l\'entrée',
+    category: 'Chaussures',
+    condition: 'frippe'
   }
 };
 
 // Variables globales
 let currentAdIndex = 0;
 const totalAds = 3;
+let tontineProgress = 20;
 
 // Initialisation
 document.addEventListener('DOMContentLoaded', function() {
@@ -85,6 +109,38 @@ function goBackToHome() {
 
 function showProductDetail(productId) {
   const product = products[productId];
+  if (!product) return;
+  
+  // Mettre à jour les éléments de la page de détail
+  document.getElementById('detail-image').src = product.image;
+  document.getElementById('detail-title').textContent = product.name;
+  document.getElementById('detail-price').textContent = formatPrice(product.price) + ' FCFA';
+  if (product.oldPrice) {
+    document.getElementById('detail-old-price').textContent = formatPrice(product.oldPrice) + ' FCFA';
+  } else {
+    document.getElementById('detail-old-price').style.display = 'none';
+  }
+  document.getElementById('detail-description').textContent = product.description;
+  document.getElementById('detail-seller').textContent = product.seller;
+  document.getElementById('detail-location').textContent = product.location;
+  document.getElementById('detail-category').textContent = product.category;
+  
+  // Mettre à jour la condition
+  if (product.condition === 'neuf') {
+    document.getElementById('detail-condition').textContent = 'NEUF';
+    document.getElementById('detail-condition').className = 'badge neuf-badge';
+    document.getElementById('detail-condition-text').textContent = 'Neuf';
+  } else {
+    document.getElementById('detail-condition').textContent = 'FRIPE';
+    document.getElementById('detail-condition').className = 'badge frippe-badge';
+    document.getElementById('detail-condition-text').textContent = 'Frippé';
+  }
+  
+  // Mettre à jour la modale de marchandage
+  document.getElementById('modal-image').src = product.image;
+  document.getElementById('modal-product-name').textContent = product.name;
+  document.getElementById('modal-seller').textContent = product.seller;
+  document.getElementById('modal-location').textContent = product.location;
   
   // Afficher la page de détail
   document.getElementById('home-page').style.display = 'none';
@@ -102,7 +158,6 @@ function showProfile() {
   document.getElementById('home-page').style.display = 'none';
   document.getElementById('profile-page').style.display = 'block';
   document.querySelector('.bottom-nav').style.display = 'none';
-  
   // Mettre à jour l'icône active dans le footer
   document.querySelectorAll('.nav-item').forEach(item => {
     item.classList.remove('active');
@@ -120,7 +175,6 @@ function showSearch() {
   document.getElementById('home-page').style.display = 'none';
   document.getElementById('search-page').style.display = 'block';
   document.querySelector('.bottom-nav').style.display = 'none';
-  
   // Mettre à jour l'icône active dans le footer
   document.querySelectorAll('.nav-item').forEach(item => {
     item.classList.remove('active');
@@ -138,7 +192,6 @@ function showChat() {
   document.getElementById('home-page').style.display = 'none';
   document.getElementById('chat-page').style.display = 'block';
   document.querySelector('.bottom-nav').style.display = 'none';
-  
   // Mettre à jour l'icône active dans le footer
   document.querySelectorAll('.nav-item').forEach(item => {
     item.classList.remove('active');
@@ -176,15 +229,17 @@ function hideAdvancedSearch() {
 
 // Fonctions de gestion des produits
 function initProducts() {
-  // Ajouter des produits de démonstration
-  const categories = ['vetements'];
+  // Ajouter des produits de démonstration pour chaque catégorie
+  const categories = ['vetements', 'chaussures', 'sacs', 'accessoires'];
   
   categories.forEach(category => {
     const container = document.getElementById(`${category}-products`);
     
-    // Créer 3 produits par catégorie
-    for (let i = 1; i <= 3; i++) {
-      const productId = category === 'vetements' ? (i === 1 ? 'chemise1' : `product-${category}-${i}`) : `product-${category}-${i}`;
+    // Créer 5 produits par catégorie
+    for (let i = 1; i <= 5; i++) {
+      const productId = category === 'vetements' ? (i === 1 ? 'chemise1' : i === 2 ? 'robe1' : `product-${category}-${i}`) : 
+                      category === 'chaussures' ? (i === 1 ? 'sandales1' : `product-${category}-${i}`) : 
+                      `product-${category}-${i}`;
       
       const product = products[productId] || {
         id: `product-${category}-${i}`,
@@ -213,6 +268,10 @@ function initProducts() {
           <i class="fas fa-map-marker-alt"></i>
           <span class="location-text">${product.location}</span>
         </div>
+        <div class="price-row">
+          <div class="price">${formatPrice(product.price)} FCFA</div>
+          ${product.oldPrice ? `<div class="old-price">${formatPrice(product.oldPrice)} FCFA</div>` : ''}
+        </div>
         <div class="offer-button">Voir le produit</div>
       `;
       
@@ -231,6 +290,27 @@ function filterProducts(category) {
   });
   
   closeSidebar();
+}
+
+function showOfferModal() {
+  // Afficher la modale
+  document.getElementById('offer-modal').style.display = 'block';
+}
+
+function closeOfferModal() {
+  document.getElementById('offer-modal').style.display = 'none';
+}
+
+function sendOffer() {
+  const offerAmount = document.getElementById('offer-amount').value;
+  if (!offerAmount || offerAmount <= 0) {
+    alert('Veuillez entrer un montant valide');
+    return;
+  }
+  
+  // Ici, vous implémenteriez l'envoi de l'offre
+  alert(`Votre offre de ${formatPrice(offerAmount)} FCFA a été envoyée au vendeur !`);
+  closeOfferModal();
 }
 
 function shareProduct() {
@@ -275,6 +355,20 @@ function buyNow() {
 
 // Fonctionnalité de paiement en plusieurs tranches
 function showTontineModal() {
+  const product = {
+    name: 'Chemise traditionnelle',
+    price: 8500
+  };
+  
+  // Mettre à jour les valeurs de la modale
+  document.getElementById('tontine-product-price').textContent = formatPrice(product.price) + ' FCFA';
+  
+  const fees = product.price * 0.02;
+  const total = product.price + fees;
+  
+  document.getElementById('tontine-fees').textContent = formatPrice(fees) + ' FCFA';
+  document.getElementById('tontine-total').textContent = formatPrice(total) + ' FCFA';
+  
   // Afficher la modale
   document.getElementById('tontine-modal').style.display = 'block';
 }
@@ -288,7 +382,6 @@ function startTontinePayment() {
     name: 'Chemise traditionnelle',
     price: 8500
   };
-  
   const total = product.price * 1.02; // 2% de frais
   
   const confirmation = confirm(`Confirmez-vous le démarrage du paiement en plusieurs tranches pour "${product.name}" ?\nTotal à payer: ${formatPrice(total)} FCFA`);
@@ -300,6 +393,34 @@ function startTontinePayment() {
     alert('Paiement en plusieurs tranches démarré avec succès !');
     hideProductDetail();
   }
+}
+
+function openRegisterModal() {
+  document.getElementById('register-modal').style.display = 'block';
+}
+
+function closeRegisterModal() {
+  document.getElementById('register-modal').style.display = 'none';
+}
+
+function registerSeller() {
+  const name = document.getElementById('register-name').value;
+  const email = document.getElementById('register-email').value;
+  const password = document.getElementById('register-password').value;
+  const whatsapp = document.getElementById('register-whatsapp').value;
+  const location = document.getElementById('register-location').value;
+  const category = document.getElementById('register-category').value;
+  
+  // Validation simple
+  if (!name || !email || !password || !whatsapp || !location || !category) {
+    document.getElementById('register-error').textContent = 'Veuillez remplir tous les champs';
+    return;
+  }
+  
+  // Simuler l'inscription
+  alert('Inscription réussie ! Vous recevrez une confirmation par WhatsApp.');
+  closeRegisterModal();
+  goBackToHome();
 }
 
 function formatPrice(price) {
